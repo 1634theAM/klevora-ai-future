@@ -164,7 +164,9 @@ const KleviBot = () => {
             position: 'fixed',
             bottom: `calc(max(16px, env(safe-area-inset-bottom, 16px)) + ${isNarrow ? 68 : 96}px)`,
             right: `max(16px, env(safe-area-inset-right, 16px))`,
-            width: isNarrow ? 'min(92vw, 360px)' : 380,
+            left: 'auto',
+            width: isNarrow ? 'clamp(280px, calc(100vw - 32px), 360px)' : 380,
+            maxWidth: 'calc(100vw - 32px)',
             maxHeight: isNarrow ? '70vh' : 520,
             background: surfaceColor,
             borderRadius: 18,
@@ -174,6 +176,7 @@ const KleviBot = () => {
             flexDirection: 'column',
             overflow: 'hidden',
             zIndex: 60,
+            boxSizing: 'border-box',
           }}
         >
 
@@ -385,12 +388,12 @@ const KleviBot = () => {
 
           {/* Input area */}
           <div style={{
-            padding: '10px 18px',
+            padding: isNarrow ? '8px 14px' : '10px 18px',
             background: surfaceColor,
             borderTop: `1px solid ${borderColor}`,
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: isNarrow ? 6 : 8,
             position: 'relative',
             overflow: 'visible'
           }}>
@@ -402,11 +405,12 @@ const KleviBot = () => {
               onKeyDown={(e) => { if (e.key === 'Enter') handleSendMessage(); }}
               placeholder="Type your message..."
               style={{
-                flex: 1,
+                flex: '1 1 auto',
+                minWidth: 0,
                 border: `1.5px solid ${brandColor}`,
                 borderRadius: 8,
-                padding: '8px 12px',
-                fontSize: 15,
+                padding: isNarrow ? '8px 10px' : '8px 12px',
+                fontSize: isNarrow ? 14 : 15,
                 color: foregroundColor,
                 background: surfaceColor,
                 outline: 'none',
@@ -417,17 +421,20 @@ const KleviBot = () => {
             <button
               onClick={() => handleSendMessage()}
               style={{
-                 background: brandGradient,
+                background: brandGradient,
                 color: '#ffffff',
                 border: 'none',
                 borderRadius: 8,
-                padding: '8px 18px',
-                fontSize: 15,
+                padding: isNarrow ? '8px 10px' : '8px 18px',
+                minWidth: isNarrow ? 62 : 72,
+                fontSize: isNarrow ? 14 : 15,
                 fontWeight: 600,
                 cursor: 'pointer',
                 boxShadow: '0 2px 8px rgba(199,164,255,0.10)',
                 transition: 'background 0.2s',
                 opacity: loading ? 0.7 : 1,
+                flexShrink: 0,
+                whiteSpace: 'nowrap',
               }}
               disabled={loading}
             >Send</button>
