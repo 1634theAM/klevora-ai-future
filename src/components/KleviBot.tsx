@@ -119,15 +119,28 @@ const KleviBot = () => {
   const foregroundColor = '#0A0A0A';
   const borderColor = '#C7A4FF';
 
+  // simple viewport checks for responsive sizing
+  const isNarrow = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+
   return (
-    <div className="klevi-bot-container" style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 9999 }}>
+    <div
+      className="klevi-bot-container"
+      style={{
+        position: 'fixed',
+        // account for iOS/Android safe area if present
+        bottom: `max(16px, env(safe-area-inset-bottom, 16px))`,
+        right: `max(16px, env(safe-area-inset-right, 16px))`,
+        zIndex: 50,
+      }}
+    >
+
       {/* Floating button */}
       <button
         className="klevi-bot-float-btn"
         onClick={toggleChat}
         style={{
-          width: 60,
-          height: 60,
+          width: isNarrow ? 52 : 60,
+          height: isNarrow ? 52 : 60,
           borderRadius: '50%',
           background: '#ffffff',
           boxShadow: '0 4px 20px rgba(108,71,255,0.2)',
@@ -140,7 +153,7 @@ const KleviBot = () => {
         }}
         aria-label="Open Klevi Bot"
       >
-        <img src={klerovaLogo} alt="Klevora Logo" style={{ width: 32, height: 32 }} />
+        <img src={klerovaLogo} alt="Klevora Logo" style={{ width: isNarrow ? 26 : 32, height: isNarrow ? 26 : 32 }} />
       </button>
 
       {/* Chat window */}
@@ -149,10 +162,10 @@ const KleviBot = () => {
           className="klevi-bot-chat-window"
           style={{
             position: 'fixed',
-            bottom: 96,
-            right: 24,
-            width: 380,
-            maxHeight: 520,
+            bottom: `calc(max(16px, env(safe-area-inset-bottom, 16px)) + ${isNarrow ? 68 : 96}px)`,
+            right: `max(16px, env(safe-area-inset-right, 16px))`,
+            width: isNarrow ? 'min(92vw, 360px)' : 380,
+            maxHeight: isNarrow ? '70vh' : 520,
             background: surfaceColor,
             borderRadius: 18,
             boxShadow: '0 8px 32px rgba(199,164,255,0.18)',
@@ -160,9 +173,10 @@ const KleviBot = () => {
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            zIndex: 9999,
+            zIndex: 60,
           }}
         >
+
           {/* Header */}
           <div style={{
             background: brandGradient,
