@@ -3,33 +3,37 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import klerovaLogo from '@/assets/klerova-logo.png';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentY = window.scrollY || 0;
+      setIsScrolled(currentY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll as any);
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header 
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-lg border-b-2 border-primary/30 shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        isScrolled
+          ? 'bg-background/60 backdrop-blur-md border-b border-white/10'
+          : 'bg-gradient-to-b from-background/20 to-transparent'
       }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-20 relative">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 absolute left-0">
+          <Link to="/" className="flex items-center space-x-2">
             <img 
               src={klerovaLogo} 
               alt="Klevora Logo" 
@@ -39,7 +43,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:flex items-center justify-center flex-1">
+          <div className="hidden lg:flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
             <nav className="flex items-center space-x-8">
               <NavLink to="/about" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>
                 About Us
@@ -60,7 +64,7 @@ const Header = () => {
           </div>
 
           {/* Theme Toggle and Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 ml-auto">
             <ThemeToggle />
             
             {/* Mobile Menu Button */}
