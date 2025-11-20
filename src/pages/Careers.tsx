@@ -101,13 +101,8 @@ const Careers: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact" aria-label="Contact Klevora">
-                <Button className="btn-primary text-base px-8 py-3">
-                  Get in Touch
-                </Button>
-              </Link>
               <a 
-                href="mailto:careers@klevora.com"
+                href="mailto:klevora.connect@gmail.com"
                 className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-background/80 backdrop-blur border border-purple-500/30 hover:border-purple-500/60 transition-all text-foreground font-semibold text-base"
               >
                 Email Us Directly
