@@ -16,8 +16,8 @@ const Index = () => {
       {/* Splash overlay sits outside Layout so it covers header/footer/bot */}
       <SplashIntro onDone={() => setRevealed(true)} />
       <div
-        className={`transition-[opacity,transform] duration-500 ease-out ${
-          revealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        className={`transition-opacity duration-500 ease-out ${
+          revealed ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <Layout>
@@ -34,3 +34,4 @@ const Index = () => {
 };
 
 export default Index;
+\
