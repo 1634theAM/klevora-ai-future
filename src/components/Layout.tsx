@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <AnimatedBackground />
       <div className="relative z-10">
         <Header />
-        <main>{children}</main>
+        <main className="pt-20">{children}</main>
         <Footer />
       </div>
     </div>
