@@ -25,9 +25,11 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        isScrolled
-          ? 'bg-background/60 backdrop-blur-md border-b border-white/10'
-          : 'bg-gradient-to-b from-background/20 to-transparent'
+        isMenuOpen
+          ? 'bg-background border-b border-white/10'
+          : isScrolled
+            ? 'bg-background/60 backdrop-blur-md border-b border-white/10'
+            : 'bg-gradient-to-b from-background/20 to-transparent'
       }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -83,21 +85,21 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border mt-4">
-            <div className="flex flex-col space-y-4">
-              <NavLink to="/about" onClick={closeMenu} className={({isActive}) => `text-left py-2 text-foreground-muted hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
+          <div className="lg:hidden py-4 border-t border-border mt-4 bg-background shadow-lg">
+            <div className="flex flex-col items-center space-y-4">
+              <NavLink to="/about" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
                 About Us
               </NavLink>
-              <NavLink to="/agents" onClick={closeMenu} className={({isActive}) => `text-left py-2 text-foreground-muted hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
+              <NavLink to="/agents" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
                 Solutions
               </NavLink>
-              <NavLink to="/testimonials" onClick={closeMenu} className={({isActive}) => `text-left py-2 text-foreground-muted hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
+              <NavLink to="/testimonials" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
                 Testimonials
               </NavLink>
-              <NavLink to="/careers" onClick={closeMenu} className={({isActive}) => `text-left py-2 text-foreground-muted hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
+              <NavLink to="/careers" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
                 Careers
               </NavLink>
-              <NavLink to="/contact" onClick={closeMenu} className={({isActive}) => `text-left py-2 text-foreground-muted hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
+              <NavLink to="/contact" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
                 Contact Us
               </NavLink>
             </div>
