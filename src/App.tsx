@@ -1,51 +1,49 @@
-import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import About from "./pages/About";
-import Agents from "./pages/Agents";
-import Process from "./pages/Process";
-import Technology from "./pages/Technology";
-import Careers from "./pages/Careers";
-import Testimonials from "./pages/Testimonials";
-import Contact from "./pages/Contact";
-import KleviBot from "./components/KleviBot";
-import { inject } from "@vercel/analytics"
+import { inject } from "@vercel/analytics";
+import logo from "@/assets/klerova-logo.png";
 
-const queryClient = new QueryClient();
-
-inject(); // Added for vercel analytics
+inject();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-  <ThemeProvider defaultTheme="dark" storageKey="klevora-theme">
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/agents" element={<Agents />} />
-              <Route path="/process" element={<Process />} />
-              <Route path="/technology" element={<Technology />} />
-              <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-          <KleviBot />
-        </TooltipProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="klevora-theme">
+      <Toaster />
+      <Sonner />
+
+      <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+        <div className="max-w-2xl text-center">
+          
+          <img
+            src={logo}
+            alt="Klevora Logo"
+            className="w-24 h-24 mx-auto mb-8 object-contain"
+          />
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Under Maintenance
+          </h1>
+
+          <p className="text-zinc-400 text-lg md:text-xl mb-8 leading-relaxed">
+            We’re currently upgrading the experience and will be back shortly.
+            Thank you for your patience.
+          </p>
+
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-zinc-800 bg-zinc-900">
+            <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+            
+            <span className="text-sm text-zinc-300">
+              Klevora will be back shortly.
+            </span>
+          </div>
+
+          <p className="mt-10 text-sm text-zinc-500">
+            © 2026 Klevora. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
