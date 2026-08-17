@@ -7,14 +7,14 @@ import avatar2 from '@/assets/PES.png';
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "Managing customer communication used to be a constant struggle missed reminders, delayed follow-ups, and dropped conversations. With Klevora’s automation agent, everything runs seamlessly. From sending insurance updates to important reminders, we keep customers engaged and in the loop without lifting a finger.",
+      quote: "Before Klevora, managing our rural customers in their local dialects was a massive challenge. With Klevora's Vernacular Conversational Commerce API, our WhatsApp bot now seamlessly interacts with customers in Hindi and Marathi, handling FAQs and orders. It's like having a 24/7 localized support team at a fraction of the cost.",
       name: "1North",
       title: "INDIA",
       avatar: avatar1,
       rating: 5
     },
     {
-      quote: "Our team was buried in repetitive work endless data entry, manual reports, and scheduling tasks that drained our time. With Klevora’s automation, we’ve cut the busywork and boosted efficiency. On top of that, the AI-powered analytics give us clear insights and predictions, helping us make smarter, faster decisions.",
+      quote: "Filing GST and reconciling invoices was a huge administrative burden for our small team. Klevora's GST Compliance Assistant completely automated data extraction from our regional invoices. The open-core architecture gives us peace of mind regarding data privacy, and it saves us hours of manual entry every week.",
       name: "Prathamesh Energy Solution",
       title: "INDIA",
       avatar: avatar2,

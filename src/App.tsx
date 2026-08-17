@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
-import Agents from "./pages/Agents";
+import Modules from "./pages/Modules";
 import Process from "./pages/Process";
 import Technology from "./pages/Technology";
 import Careers from "./pages/Careers";
@@ -32,7 +32,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
-              <Route path="/agents" element={<Agents />} />
+              <Route path="/modules" element={<Modules />} />
               <Route path="/process" element={<Process />} />
               <Route path="/technology" element={<Technology />} />
               <Route path="/testimonials" element={<Testimonials />} />

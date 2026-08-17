@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import SplashIntro from '@/components/SplashIntro';
 import HeroSection from '@/components/HeroSection';
-import TechStackSection from '@/components/TechStackSection';
-import AITeamSection from '@/components/AITeamSection';
-import ProcessSection from '@/components/ProcessSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+import VernacularAISection from '@/components/VernacularAISection';
+import ProductModulesSection from '@/components/ProductModulesSection';
+
+import FoundersSection from '@/components/FoundersSection';
 import CTASection from '@/components/CTASection';
 
 const Index = () => {
@@ -22,10 +22,10 @@ const Index = () => {
       >
         <Layout>
           <HeroSection />
-          <TechStackSection />
-          <AITeamSection />
-          <ProcessSection />
-          <TestimonialsSection />
+          <VernacularAISection />
+          <ProductModulesSection />
+
+          <FoundersSection />
           <CTASection />
         </Layout>
       </div>

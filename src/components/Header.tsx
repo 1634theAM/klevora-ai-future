@@ -50,8 +50,8 @@ const Header = () => {
               <NavLink to="/about" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>
                 About Us
               </NavLink>
-              <NavLink to="/agents" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>
-                Solutions
+              <NavLink to="/modules" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>
+                Modules
               </NavLink>
               <NavLink to="/testimonials" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>
                 Testimonials
@@ -90,8 +90,8 @@ const Header = () => {
               <NavLink to="/about" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
                 About Us
               </NavLink>
-              <NavLink to="/agents" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
-                Solutions
+              <NavLink to="/modules" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
+                Modules
               </NavLink>
               <NavLink to="/testimonials" onClick={closeMenu} className={({isActive}) => `text-center py-2 text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}>
                 Testimonials

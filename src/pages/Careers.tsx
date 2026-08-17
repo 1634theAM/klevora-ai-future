@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const Careers: React.FC = () => {
   const benefits = [
     {
-      title: "Innovation First",
-      description: "Work on cutting-edge AI technologies and shape the future"
+      title: "Open Source First",
+      description: "Contribute to core Indic NLP libraries and shape the sovereign AI ecosystem."
     },
     {
       title: "Remote Flexibility",
@@ -37,10 +37,10 @@ const Careers: React.FC = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-black text-gradient mb-6">
-            Join the Future of AI
+            Build Vernacular AI for India
           </h1>
           <p className="text-xl text-foreground mb-8 max-w-3xl mx-auto">
-            Build revolutionary AI solutions that transform how businesses grow
+            Join us in democratizing AI for India's 60M+ MSMEs through Open-Core API platforms and SLMs.
           </p>
           
           <div className="inline-block card-glow p-6 rounded-2xl bg-background/80 backdrop-blur border border-purple-500/30 text-center">
