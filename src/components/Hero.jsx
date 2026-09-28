@@ -1,82 +1,69 @@
-import BridgeGraphic from './BridgeGraphic.jsx'
+import SetuBridge from './SetuBridge.jsx'
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-24 pb-32 md:pt-36 md:pb-44">
-      {/* Bridge illustration — सेतु means bridge */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-[6%] flex select-none opacity-[0.09] md:bottom-[10%]"
-      >
-        <BridgeGraphic className="w-full h-auto text-ink-900" />
-      </div>
+    <section className="relative overflow-hidden pt-10 pb-32 md:pt-14 md:pb-40">
+      {/* Living bridge - photograph + mist canvas */}
+      <SetuBridge />
 
       <div className="relative container-mid text-center">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-ink-900/10 bg-cream-50/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink-600 backdrop-blur-sm">
-          <span className="h-1.5 w-1.5 rounded-full bg-moss-600" />
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-ink-900/10 bg-cream-50/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink-600 backdrop-blur-sm">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-moss-600 opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-moss-600" />
+          </span>
           <span className="font-dev normal-case tracking-normal text-[13px] text-ink-700">सेतु</span>
           <span className="text-ink-400">·</span>
-          <span>v2 shipping</span>
+          <span>API-first · v1 shipping</span>
         </div>
 
-        <h1 className="font-serif text-[52px] leading-[1.02] tracking-tightest text-ink-900 sm:text-[68px] md:text-[86px]">
-          Conversational
+        <h1 className="font-serif text-[46px] leading-[1.02] tracking-tightest text-ink-900 sm:text-[62px] md:text-[80px]">
+          Turn your APIs into
           <br />
-          <span className="italic text-ink-700">middleware</span> for
-          <br />
-          your own APIs.
+          <span className="italic text-ink-700">AI-powered</span> workflows.
         </h1>
 
-        <p className="mx-auto mt-8 max-w-[560px] text-[17px] leading-relaxed text-ink-600">
-          A small fine-tuned LLM sits between your customer and your backend.
-          You declare the flow in <span className="font-medium text-ink-800">YAML</span>.
-          <span className="font-dev text-[19px] text-ink-800"> सेतु </span>
-          speaks English, Hinglish, Hindi on top.
-          Your data never leaves your servers.
+        <p className="mx-auto mt-8 max-w-[580px] text-[17px] leading-relaxed text-ink-600">
+          Setu is the intelligence layer between customer conversations and your business systems.
+          Understand intent. Extract the required information. Execute verified workflows
+          through your existing APIs.
         </p>
 
         <div className="mt-10 flex items-center justify-center gap-3">
           <a href="#cta" className="btn-primary">
-            Request access
+            Start building
             <span aria-hidden>→</span>
-          </a>
-          <a href="#what" className="btn-ghost">
-            How it works
           </a>
         </div>
 
-        <p className="mt-8 text-[12px] uppercase tracking-[0.16em] text-ink-500">
-          Built for Indian D2C · WhatsApp-native · BYOC ready
+        <p className="mt-8 text-[12px] font-medium uppercase tracking-[0.16em] text-ink-800">
+          Natural language → Intent → Workflow → Verified action
         </p>
       </div>
 
-      {/* Mini terminal card */}
-      <div className="relative container-mid mt-20">
-        <div className="mx-auto max-w-[720px] rounded-2xl border border-ink-900/10 bg-cream-50/90 shadow-[0_1px_0_rgba(0,0,0,0.04),0_30px_60px_-30px_rgba(20,18,16,0.15)] backdrop-blur-sm">
-          <div className="flex items-center gap-2 border-b border-ink-900/8 px-5 py-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-ink-900/10" />
-            <span className="h-2.5 w-2.5 rounded-full bg-ink-900/10" />
-            <span className="h-2.5 w-2.5 rounded-full bg-ink-900/10" />
-            <span className="ml-3 font-mono text-[11px] text-ink-500">
-              POST /v1/parse
-            </span>
-          </div>
-          <div className="px-6 py-6 font-mono text-[12.5px] leading-relaxed">
-            <div className="text-ink-500">// customer message</div>
-            <div className="mt-1 text-ink-800">
-              "mera order kahan hai, FL1234567890"
+      {/* Flow visual */}
+      <div className="relative container-wide mt-20">
+        <div className="mx-auto flex max-w-[1000px] flex-wrap items-stretch justify-center gap-3 text-[12px] font-mono uppercase tracking-[0.14em] text-ink-600">
+          {[
+            'User message',
+            'Setu API',
+            'Intent + entities',
+            'Workflow',
+            'Your APIs',
+            'Business result',
+          ].map((step, i, arr) => (
+            <div key={step} className="flex items-stretch">
+              <div className="flex items-center rounded-full border border-ink-900/10 bg-cream-50/80 px-4 py-2 backdrop-blur-sm">
+                {step}
+              </div>
+              {i < arr.length - 1 && (
+                <span className="mx-1 flex items-center text-ink-400">→</span>
+              )}
             </div>
-            <div className="mt-5 text-ink-500">// setu output</div>
-            <pre className="mt-1 whitespace-pre-wrap text-ink-800">
-{`{
-  "intent": "order_status",
-  "params": { "order_id": "FL1234567890" },
-  "language": "hinglish"
-}`}
-            </pre>
-          </div>
+          ))}
         </div>
       </div>
+
     </section>
   )
 }

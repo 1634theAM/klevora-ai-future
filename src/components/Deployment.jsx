@@ -2,22 +2,22 @@ const modes = [
   {
     letter: 'A',
     name: 'Managed SaaS',
-    for: 'SMB',
-    body: 'Upload YAML. Get an API key. We host the model in Mumbai, scale to zero, and meter usage. Fastest path to a live bot.',
-    tag: 'Runpod Serverless · L40S · vLLM',
+    for: 'Startup · SMB',
+    body: 'Get an API key. Point it at your workflows. We host, scale, and meter. Fastest path from signup to a live API call.',
+    tag: 'Serverless GPU · high-throughput inference',
   },
   {
     letter: 'B',
     name: 'Bring Your Own Cloud',
     for: 'Mid-market',
-    body: 'Terraform module plus a Docker image. Deploys into your AWS, GCP, or Azure VPC. Customer data never leaves your network.',
+    body: 'An infrastructure module plus a container image. Setu runs inside your VPC on any major cloud. Customer data never leaves your network.',
     tag: 'BYOC · VPC-native · telemetry only',
   },
   {
     letter: 'C',
     name: 'On-prem · Air-gapped',
     for: 'Enterprise · BFSI · Gov',
-    body: 'Bare-metal install with a 4–8 week onboarding. Fully offline. Same LoRA workflow, same YAML surface, zero external calls.',
+    body: 'Bare-metal install with a 4–8 week onboarding. Fully offline. Same API surface, same workflow contract, zero external calls.',
     tag: 'Compliance-first · $50k+ setup',
   },
 ]
@@ -30,7 +30,7 @@ export default function Deployment() {
         <h2 className="mt-6 max-w-[640px] font-serif text-4xl leading-tight tracking-tightest text-ink-900 md:text-5xl">
           Three ways to run it.
           <br />
-          <span className="italic text-ink-700">Same product underneath.</span>
+          <span className="italic text-ink-700">Same API surface underneath.</span>
         </h2>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">

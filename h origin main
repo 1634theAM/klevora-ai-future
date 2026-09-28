@@ -1,0 +1,41 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/AdaptiveTeaser.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/CTA.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Deployment.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Footer.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Hero.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Nav.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/WhatItIs.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/WhoFor.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/layouts/SiteLayout.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Deploy.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Home.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Pricing.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Product.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Roadmap.jsx', LF will be replaced by CRLF the next time Git touches it
+ index.html                         |   4 [32m+[m[31m-[m
+ src/App.jsx                        |   4 [32m+[m[31m-[m
+ src/components/AdaptiveTeaser.jsx  |  35 [32m+[m[31m--[m
+ src/components/BridgeGraphic.jsx   | 101 [31m--------[m
+ src/components/CTA.jsx             |  39 [32m++[m[31m--[m
+ src/components/DashboardMock.jsx   | 455 [31m-------------------------------------[m
+ src/components/DashboardScroll.jsx | 160 [31m-------------[m
+ src/components/Deployment.jsx      |  12 [32m+[m[31m-[m
+ src/components/Footer.jsx          |  56 [32m++[m[31m---[m
+ src/components/Hero.jsx            |  93 [32m++++[m[31m----[m
+ src/components/Nav.jsx             |  57 [32m+++[m[31m--[m
+ src/components/Numbers.jsx         |  48 [31m----[m
+ src/components/ParserComposer.jsx  |  71 [31m------[m
+ src/components/Sovereignty.jsx     |  44 [31m----[m
+ src/components/WhatItIs.jsx        |  46 [32m+++[m[31m-[m
+ src/components/WhoFor.jsx          |  19 [32m+[m[31m-[m
+ src/components/YamlSection.jsx     |  85 [31m-------[m
+ src/layouts/SiteLayout.jsx         |  19 [32m+[m[31m-[m
+ src/pages/Deploy.jsx               |  43 [32m++[m[31m--[m
+ src/pages/Home.jsx                 |  24 [32m+[m[31m-[m
+ src/pages/Pricing.jsx              | 298 [32m+++++++++[m[31m---------------[m
+ src/pages/Product.jsx              | 193 [32m+++++++++[m[31m-------[m
+ src/pages/Roadmap.jsx              |  68 [32m+++[m[31m---[m
+ src/pages/Yaml.jsx                 | 155 [31m-------------[m
+ 24 files changed, 516 insertions(+), 1613 deletions(-)

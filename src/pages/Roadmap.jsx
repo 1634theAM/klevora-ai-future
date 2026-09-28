@@ -3,49 +3,56 @@ import PageHeader from '../components/PageHeader.jsx'
 
 const timeline = [
   {
-    tag: 'Shipped',
+    tag: 'R&D',
     tone: 'done',
-    quarter: 'v2 · Q4 2025',
+    quarter: 'Q3 2026',
     items: [
-      'Setu LoRA v2 · English structured output',
-      'Local test harness with YAML paste panel',
-      'AJIO Hinglish sample workflow',
-      'Streaming token output',
+      'Core research on intent extraction and structured output',
+      'Workflow schema and API surface design',
+      'Adapter training on the latest Jev model',
+      'Internal test harness with playbook paste + trace viewer',
+      'First customer conversations across D2C, fintech, and support ops',
+      'Team ramp and infrastructure baseline',
     ],
   },
   {
     tag: 'In flight',
     tone: 'now',
-    quarter: 'v2.5 · Q1 2026',
+    quarter: 'Launch · Q4 2026',
     items: [
-      'Production /v1/parse and /v1/compose endpoints',
-      'Managed SaaS on Runpod Serverless (Mumbai)',
-      'Metering, auth, usage dashboard',
-      'First ten pilot customers',
+      'First public Setu API to market',
+      'Latest Jev model powering understanding + entity extraction',
+      'Managed SaaS on serverless GPU',
+      'Metering, auth, and usage dashboard',
+      'Node and Python SDKs',
+      'Hosted docs and interactive playground',
+      'First paying customers live',
     ],
   },
   {
     tag: 'Next',
     tone: 'next',
-    quarter: 'v3 · Q2 2026',
+    quarter: 'Adaptive · Q1 2027',
     items: [
-      '15,000 to 25,000 examples across five verticals',
-      '30% Hindi, Hinglish, Tamil, Bengali',
-      '40% multi-turn dialogs (3 to 6 turns)',
-      'LoRA r=64, alpha=128 for extra capacity',
-      'DPO on structured-output preferences',
-      'Held-out eval set of 500 conversations',
+      'Self-building workflows. Setu proposes new intents from real traffic',
+      'Auto-generated entity catalogs from conversation traces',
+      'One-click merge for workflow diffs, versioned end-to-end',
+      'Sessions API for multi-turn state',
+      'Webhooks for long-running workflows',
+      'Multilingual expansion. Hindi, Hinglish, Tamil, Bengali',
     ],
   },
   {
     tag: 'Later',
     tone: 'later',
-    quarter: 'v4 · H2 2026',
+    quarter: 'Scale · H2 2027',
     items: [
-      'BYOC Docker image and Terraform module',
-      'Adaptive workflows (see below)',
-      'Setu Studio hosted YAML authoring',
+      'BYOC container image and infrastructure module',
+      'On-prem, air-gapped deployment for BFSI and government',
+      'Custom adapters trained on customer data',
+      'Setu Studio. Hosted workflow authoring + observability',
       'SEA and MENA language packs',
+      'Voice IVR reference integration',
     ],
   },
 ]
@@ -67,26 +74,29 @@ export default function Roadmap() {
         lede="Everything shipped, everything in flight, everything we've committed to. Updated quarterly."
       />
 
-      {/* Adaptive workflows — hero feature */}
+      {/* Adaptive workflows,hero feature */}
       <section className="pb-8">
         <div className="container-mid">
           <div className="rounded-2xl border border-ink-900/10 bg-ink-900 text-cream-100 overflow-hidden">
             <div className="grid gap-10 p-10 md:grid-cols-[1.1fr_1fr] md:gap-16 md:p-16">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-cream-100/15 bg-cream-100/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-cream-100/70">
-                  <span className="h-1.5 w-1.5 rounded-full bg-moss-600" />
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-moss-600 opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-moss-600" />
+                  </span>
                   Flagship · v4
                 </div>
                 <h2 className="mt-6 font-serif text-[44px] leading-[1.02] tracking-tightest md:text-[64px]">
                   Adaptive workflows.
                   <br />
                   <span className="italic text-cream-100/90">
-                    Self-building YAML.
+                    Self-building playbook.
                   </span>
                 </h2>
                 <p className="mt-6 max-w-[460px] text-[16px] leading-relaxed text-cream-100/70">
                   Every conversation that flows through Setu leaves a trace. Missing intents,
-                  new paraphrases, unseen slot values, customers asking things your YAML
+                  new paraphrases, unseen slot values, customers asking things your playbook
                   hasn't accounted for. Adaptive workflows study those gaps and propose diffs
                   you can review and merge.
                 </p>
@@ -97,7 +107,7 @@ export default function Roadmap() {
 
               <div className="rounded-xl border border-cream-100/10 bg-cream-100/[0.03] p-5 font-mono text-[12px] leading-relaxed">
                 <div className="flex items-center justify-between text-cream-100/50">
-                  <span>proposed_diff.yaml</span>
+                  <span>proposed_diff.playbook</span>
                   <span className="text-[10px] uppercase tracking-wider text-cream-100/40">
                     seen 38x in 7 days
                   </span>
@@ -133,7 +143,7 @@ export default function Roadmap() {
             <div className="grid gap-6 border-t border-cream-100/10 px-10 py-10 md:grid-cols-3 md:px-16">
               {[
                 ['Observes', 'Every real conversation. Nothing synthetic.'],
-                ['Proposes', 'Small YAML diffs, one intent at a time.'],
+                ['Proposes', 'Small playbook diffs, one intent at a time.'],
                 ['Waits', 'A human on your team reviews and merges.'],
               ].map(([k, v]) => (
                 <div key={k}>
@@ -194,7 +204,7 @@ export default function Roadmap() {
             existing system. All of them fit Setu's shape.
           </p>
           <div className="mt-10 flex items-center gap-3">
-            <Link to="/pricing" className="btn-primary">Start on v2 today <span aria-hidden>→</span></Link>
+            <Link to="/pricing" className="btn-primary">Join the waitlist <span aria-hidden>→</span></Link>
             <Link to="/product" className="btn-ghost">Read the product</Link>
           </div>
         </div>

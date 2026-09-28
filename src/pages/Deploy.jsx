@@ -6,14 +6,14 @@ const modes = [
     letter: 'A',
     name: 'Managed SaaS',
     for: 'SMB',
-    tag: 'Runpod Serverless · L40S · vLLM',
+    tag: 'Serverless GPU · high-throughput inference',
     body:
-      'Upload YAML. Get an API key. We host the model in Mumbai, scale to zero, and meter usage. Fastest path from signup to a live bot.',
+      'Upload playbook. Get an API key. We host the model, scale to zero, and meter usage. Fastest path from signup to a live bot.',
     bullets: [
       'Zero infra to run.',
-      'Auto-scaling on Runpod Serverless L40S.',
+      'Auto-scaling serverless GPU.',
       'Per-message pricing. Cheap at launch, cheaper at scale.',
-      'Multi-region on the roadmap (Mumbai, Singapore, Frankfurt).',
+      'Multi-region on the roadmap.',
     ],
     footnote: 'Best for teams under 500k messages a month.',
   },
@@ -21,12 +21,12 @@ const modes = [
     letter: 'B',
     name: 'Bring Your Own Cloud',
     for: 'Mid-market',
-    tag: 'BYOC · VPC-native · Terraform · Docker',
+    tag: 'BYOC · VPC-native · container + IaC module',
     body:
-      'A Terraform module plus a Docker image. Setu runs inside your AWS, GCP, or Azure VPC. Customer data never leaves your network. We meter and telemeter, nothing else.',
+      'An infrastructure module plus a container image. Setu runs inside your VPC on any major cloud. Customer data never leaves your network. We meter and telemeter, nothing else.',
     bullets: [
       'Deploys into your existing VPC in under an hour.',
-      'vLLM inference with continuous batching.',
+      'High-throughput inference with continuous batching.',
       'Only metering and health telemetry leave your network.',
       'Compatible with your existing observability stack.',
     ],
@@ -38,11 +38,11 @@ const modes = [
     for: 'Enterprise · BFSI · Gov',
     tag: 'Bare-metal · offline · $50k+ setup',
     body:
-      'Bare-metal install with a 4 to 8 week onboarding cycle. Fully offline. Same LoRA workflow, same YAML surface, zero external calls. For BFSI, healthcare, and government.',
+      'Bare-metal install with a 4 to 8 week onboarding cycle. Fully offline. Same adapter workflow, same playbook surface, zero external calls. For BFSI, healthcare, and government.',
     bullets: [
       'Air-gapped by default. No outbound network.',
       'On-site training for your ops team.',
-      'Custom LoRA on your historical data.',
+      'Custom adapter on your historical data.',
       'Annual support contract with SLAs.',
     ],
     footnote: 'Best for compliance-first buyers with dedicated GPU capacity.',
@@ -56,15 +56,30 @@ export default function Deploy() {
         eyebrow="Deployment"
         title="Three modes."
         italic="Same product underneath."
-        lede="Whatever your data policy allows, Setu fits. Same YAML, same model, same LoRA. Different data path."
+        lede="Whatever your data policy allows, Setu fits. Same playbook, same model, same adapter. Different data path."
       />
 
-      <section className="py-8">
-        <div className="container-mid space-y-6">
+      <section className="relative overflow-hidden py-16 md:py-24">
+        {/* Deep warm-ink backdrop - matches Try Setu and Builders sections */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-[calc(100%-4rem)] max-w-[1080px] rounded-[48px] bg-gradient-to-br from-[#1F1A14] via-[#181410] to-[#14100B]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-[calc(100%-4rem)] max-w-[1080px] rounded-[48px] opacity-40"
+          style={{
+            backgroundImage:
+              'radial-gradient(rgba(245,240,230,0.07) 1px, transparent 1px)',
+            backgroundSize: '18px 18px',
+          }}
+        />
+
+        <div className="relative container-mid space-y-6">
           {modes.map((m) => (
             <article
               key={m.letter}
-              className="grid gap-8 rounded-2xl border border-ink-900/10 bg-cream-50/70 p-8 md:grid-cols-[280px_1fr] md:p-10"
+              className="grid gap-8 rounded-2xl border border-ink-900/10 bg-cream-50 p-8 shadow-[6px_6px_0_0_rgba(20,18,16,0.85)] md:grid-cols-[280px_1fr] md:p-10"
             >
               <div>
                 <div className="flex items-center gap-3">
@@ -121,7 +136,7 @@ export default function Deploy() {
               <tbody className="divide-y divide-ink-900/10 bg-cream-50/40 text-ink-700">
                 {[
                   ['Onboarding', '1 day', '1 week', '4 to 8 weeks'],
-                  ['Where data lives', 'Setu cloud (Mumbai)', 'Your VPC', 'Your datacenter'],
+                  ['Where data lives', 'Setu cloud', 'Your VPC', 'Your datacenter'],
                   ['Setup fee', 'None', 'Included', '$50k+'],
                   ['Best for', 'SMB', 'Mid-market', 'BFSI · Gov'],
                   ['Model updates', 'Automatic', 'Opt-in', 'Manual · offline'],

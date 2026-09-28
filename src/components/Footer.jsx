@@ -4,27 +4,22 @@ const columns = [
   {
     title: 'Product',
     links: [
-      { label: 'Parser', to: '/product' },
-      { label: 'Composer', to: '/product' },
-      { label: 'YAML', to: '/yaml' },
+      { label: 'How it works', to: '/#how' },
+      { label: 'Try Setu', to: '/#playground' },
+      { label: 'Workflow engine', to: '/#workflows' },
+      { label: 'Backend integration', to: '/#integration' },
       { label: 'Pricing', to: '/pricing' },
-    ],
-  },
-  {
-    title: 'Deploy',
-    links: [
-      { label: 'Managed SaaS', to: '/deploy' },
-      { label: 'BYOC', to: '/deploy' },
-      { label: 'On-prem', to: '/deploy' },
     ],
   },
   {
     title: 'Company',
     links: [
+      { label: 'Product', to: '/product' },
+      { label: 'Deploy', to: '/deploy' },
+      { label: 'Pricing', to: '/pricing' },
       { label: 'Roadmap', to: '/roadmap' },
-      { label: 'Docs', to: '/product' },
-      { label: 'Contact', to: '/pricing' },
-      { label: 'Careers', to: '/' },
+      { label: 'Builders', to: '/builders' },
+      { label: 'Contact', to: '/#cta' },
     ],
   },
 ]
@@ -34,21 +29,22 @@ export default function Footer() {
   return (
     <footer className="border-t border-ink-900/10 bg-cream-100">
       <div className="container-wide py-16">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-2.5">
-              <span className="grid h-7 w-7 place-items-center rounded-md bg-ink-900 text-cream-50 font-dev text-[13px]">
-                स
-              </span>
-              <span className="text-[15px] tracking-tight text-ink-800">
-                klevora
-                <span className="mx-1.5 text-ink-400">·</span>
-                <span className="font-dev text-ink-700 text-[17px] leading-none">सेतु</span>
+              <img
+                src="/hero/logo-removebg-preview.png"
+                alt="Klevora"
+                className="h-10 w-10 object-contain"
+              />
+              <span className="text-[15px] font-semibold uppercase tracking-[0.14em] text-ink-900">
+                KLEVORA
               </span>
             </Link>
-            <p className="mt-5 max-w-[300px] text-[13.5px] leading-relaxed text-ink-500">
-              <span className="font-dev text-[16px] text-ink-700">सेतु</span>. The bridge
-              between natural language and your APIs. Built in India for the world.
+            <p className="mt-5 max-w-[320px] text-[13.5px] leading-relaxed text-ink-500">
+              <span className="font-dev text-[16px] text-ink-700">सेतु</span>. The API layer
+              between AI conversations and business systems. AI understands. Your systems
+              execute. Setu orchestrates.
             </p>
           </div>
 
@@ -70,14 +66,8 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 hairline pt-6 flex flex-col gap-3 text-[12.5px] text-ink-500 sm:flex-row sm:items-center sm:justify-between">
-          <div>© {year} Klevora Labs. All rights reserved.</div>
-          <div className="flex items-center gap-5">
-            <a className="hover:text-ink-800" href="#">Privacy</a>
-            <a className="hover:text-ink-800" href="#">Terms</a>
-            <a className="hover:text-ink-800" href="#">Security</a>
-            <span className="font-mono text-[11px] text-ink-400">setu · v2.0.0</span>
-          </div>
+        <div className="mt-14 hairline pt-6 text-center text-[12.5px] text-ink-500">
+          © {year} Klevora. All rights reserved.
         </div>
       </div>
     </footer>

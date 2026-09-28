@@ -1,88 +1,25 @@
-import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 
-const tiers = [
+const factors = [
   {
-    name: 'Starter',
-    price: '$99',
-    period: '/month',
-    quota: '10,000 messages',
-    tag: 'For teams testing the waters',
-    features: [
-      'One workflow.',
-      'Managed SaaS. Mumbai region.',
-      'Community Slack support.',
-      'v2 English LoRA.',
-    ],
-    accent: false,
+    k: '01',
+    title: 'Traffic',
+    body: 'How many API calls a month, peak concurrency, latency budget.',
   },
   {
-    name: 'Growth',
-    price: '$499',
-    period: '/month',
-    quota: '100,000 messages',
-    tag: 'For live D2C brands',
-    features: [
-      'Up to five workflows.',
-      'Managed SaaS. Mumbai region.',
-      'Email support with 24-hour SLA.',
-      'v3 multilingual LoRA when it ships.',
-      'Overage: $0.005 per message.',
-    ],
-    accent: true,
+    k: '02',
+    title: 'Deployment',
+    body: 'Managed SaaS, inside your VPC, or fully on-prem and air-gapped.',
   },
   {
-    name: 'Scale',
-    price: '$2,499',
-    period: '/month',
-    quota: '750,000 messages',
-    tag: 'For high-volume support desks',
-    features: [
-      'Unlimited workflows.',
-      'Managed SaaS or BYOC.',
-      'Shared Slack channel with our team.',
-      'Priority access to custom LoRA training.',
-      'Overage: $0.003 per message.',
-    ],
-    accent: false,
+    k: '03',
+    title: 'Custom work',
+    body: 'Fine-tuned adapter on your data, workflow authoring, integration engineering.',
   },
   {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    quota: 'From $5,000/month',
-    tag: 'BFSI, healthcare, government',
-    features: [
-      'BYOC, on-prem, or air-gapped.',
-      'Custom LoRA on your data.',
-      'DPAs, VPAT, SOC 2 evidence pack.',
-      'Named CSM. Quarterly business review.',
-    ],
-    accent: false,
-  },
-]
-
-const services = [
-  {
-    name: 'Custom LoRA fine-tune',
-    price: '$2,000 to $5,000',
-    sub: 'one-time · then $500/month maintenance',
-    body:
-      'We train a Setu LoRA on the last three months of your real conversations. Delivered in two to four weeks. Sharpens tone, vocabulary, and edge cases.',
-  },
-  {
-    name: 'YAML authoring workshop',
-    price: '$1,500',
-    sub: 'one-time · half day, remote or on-site',
-    body:
-      'Our team sits with yours to write the first production workflow together. Covers intents, policies, escalation, and evaluation.',
-  },
-  {
-    name: 'Integration engineering',
-    price: '$150 / hour',
-    sub: 'monthly retainer available',
-    body:
-      'Wiring Setu to your OMS, CRM, or WhatsApp Business API. Reference implementations in Node, Python, and Go.',
+    k: '04',
+    title: 'Support level',
+    body: 'Community Slack, email SLA, shared channel, or a named CSM with quarterly reviews.',
   },
 ]
 
@@ -91,139 +28,97 @@ export default function Pricing() {
     <>
       <PageHeader
         eyebrow="Pricing"
-        title="Pay for messages."
-        italic="Never for seats."
-        lede="Setu is priced against traffic, not against how many humans you employ. Cost per message drops as volume grows."
+        title="Pricing built around"
+        italic="your usage."
+        lede="Every workload is different. Tell us what you're building, how your customers reach you, and where your data has to live. We'll come back with a plan that actually fits."
       />
 
-      <section className="pb-16">
-        <div className="container-wide">
-          <div className="grid gap-6 md:grid-cols-4">
-            {tiers.map((t) => (
-              <article
-                key={t.name}
-                className={`flex flex-col rounded-2xl border p-7 ${
-                  t.accent
-                    ? 'border-ink-900 bg-ink-900 text-cream-100'
-                    : 'border-ink-900/10 bg-cream-50/70 text-ink-800'
-                }`}
-              >
-                <div className={`text-[11px] uppercase tracking-[0.16em] ${
-                  t.accent ? 'text-cream-100/60' : 'text-ink-500'
-                }`}>
-                  {t.name}
-                </div>
-                <div className="mt-6 flex items-baseline gap-2">
-                  <span className={`font-serif text-5xl leading-none tracking-tightest ${
-                    t.accent ? 'text-cream-100' : 'text-ink-900'
-                  }`}>
-                    {t.price}
-                  </span>
-                  <span className={`text-[13px] ${t.accent ? 'text-cream-100/60' : 'text-ink-500'}`}>
-                    {t.period}
-                  </span>
-                </div>
-                <div className={`mt-2 font-mono text-[11.5px] ${
-                  t.accent ? 'text-cream-100/70' : 'text-ink-500'
-                }`}>
-                  {t.quota}
-                </div>
-                <p className={`mt-4 text-[13.5px] leading-relaxed ${
-                  t.accent ? 'text-cream-100/80' : 'text-ink-600'
-                }`}>
-                  {t.tag}
+      {/* Big contact block */}
+      <section className="pb-8">
+        <div className="container-mid">
+          <div className="rounded-2xl border border-ink-900/10 bg-cream-50/70 p-8 md:p-12">
+            <div className="grid gap-10 md:grid-cols-[1.15fr_1fr] md:gap-16 md:items-center">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-500">
+                  How this works
+                </span>
+                <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tightest text-ink-900 md:text-4xl">
+                  Hop on a call. We listen first,
+                  <br />
+                  <span className="italic text-ink-700">then pitch the best possible fit.</span>
+                </h2>
+                <p className="mt-6 text-[16px] leading-relaxed text-ink-600">
+                  Every business is a little different. Share what you're building and we'll
+                  put together a plan that fits.
                 </p>
-                <ul className={`mt-6 space-y-2.5 text-[13.5px] leading-relaxed ${
-                  t.accent ? 'text-cream-100/85' : 'text-ink-700'
-                }`}>
-                  {t.features.map((f) => (
-                    <li key={f} className="flex gap-3">
-                      <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${
-                        t.accent ? 'bg-cream-100/60' : 'bg-ink-500'
-                      }`} />
-                      <span>{f}</span>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <a
+                    href="mailto:klevora.connect@gmail.com?subject=Setu%20%E2%80%94%20let%27s%20talk%20pricing"
+                    className="btn-primary"
+                  >
+                    Book a call <span aria-hidden>→</span>
+                  </a>
+                  <a
+                    href="mailto:klevora.connect@gmail.com"
+                    className="btn-ghost"
+                  >
+                    klevora.connect@gmail.com
+                  </a>
+                </div>
+                <p className="mt-6 font-mono text-[11.5px] text-ink-500">
+                  One reply from a human within 48 hours.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-ink-900/10 bg-cream-100 p-6 md:p-7">
+                <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-500">
+                  What to send us
+                </div>
+                <ul className="mt-5 space-y-4 text-[14.5px] text-ink-700">
+                  {[
+                    'A sentence on your product and who your customers are.',
+                    'Where the conversations happen (WhatsApp, in-app, voice, agent copilot).',
+                    'Roughly how many messages a month, today and in 12 months.',
+                    'Any data residency or compliance constraints we should know about.',
+                    'Deadline, if any.',
+                  ].map((l, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink-500" />
+                      <span className="leading-relaxed">{l}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-8">
-                  <Link
-                    to="/#cta"
-                    className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm transition-all ${
-                      t.accent
-                        ? 'bg-cream-100 text-ink-900 hover:bg-cream-50'
-                        : 'border border-ink-900/20 text-ink-800 hover:border-ink-900/50'
-                    }`}
-                  >
-                    {t.name === 'Enterprise' ? 'Talk to sales' : 'Start pilot'}
-                    <span aria-hidden>→</span>
-                  </Link>
-                </div>
-              </article>
-            ))}
+              </div>
+            </div>
           </div>
-
-          <p className="mt-6 text-center text-[12.5px] text-ink-500">
-            All plans include the same v2 model. No feature gates. Pay only for how much
-            you talk.
-          </p>
         </div>
       </section>
 
-      {/* Unit econ context */}
-      <section className="py-20 border-t border-ink-900/10">
+      {/* What we consider */}
+      <section className="py-20 border-t border-ink-900/10 mt-12">
         <div className="container-mid">
-          <span className="eyebrow">The economics</span>
+          <span className="eyebrow">What we consider</span>
           <h2 className="mt-6 max-w-[620px] font-serif text-4xl leading-tight tracking-tightest text-ink-900 md:text-5xl">
-            60 to 100x cheaper than Intercom Fin.
+            Four things drive the number.
           </h2>
           <p className="mt-6 max-w-[620px] text-[16px] leading-relaxed text-ink-600">
-            A typical 6 to 8 turn support session costs $0.006 to $0.016 to serve.
-            Intercom Fin charges roughly $0.99 per resolution. That gap is why Setu can
-            price generously and still keep 90%+ gross margin.
+            Not seat counts. Not vanity features. Just the levers that actually move cost
+            and value on both sides.
           </p>
 
-          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-ink-900/10 bg-ink-900/10 md:grid-cols-3">
-            {[
-              ['$0.001', 'per message at scale', 'includes GPU + KV cache + overhead'],
-              ['$0.012', 'per full 6-turn session', 'compared to $0.99 for Intercom Fin'],
-              ['90%+', 'gross margin at scale', 'once you clear ~$5k MRR'],
-            ].map(([k, v, s]) => (
-              <div key={v} className="bg-cream-50/80 p-6">
-                <div className="font-serif text-[42px] leading-none tracking-tightest text-ink-900">
-                  {k}
-                </div>
-                <div className="mt-3 text-[14px] text-ink-700">{v}</div>
-                <div className="mt-1 text-[12px] text-ink-500">{s}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-24 border-t border-ink-900/10">
-        <div className="container-mid">
-          <span className="eyebrow">Services</span>
-          <h2 className="mt-6 font-serif text-4xl leading-tight tracking-tightest text-ink-900 md:text-5xl">
-            When you want us in the room.
-          </h2>
-          <p className="mt-6 max-w-[560px] text-[16px] leading-relaxed text-ink-600">
-            Beyond the platform, three services carry most of our margin. Add any of them
-            to any plan.
-          </p>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {services.map((s) => (
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {factors.map((f) => (
               <article
-                key={s.name}
+                key={f.k}
                 className="flex flex-col rounded-2xl border border-ink-900/10 bg-cream-50/70 p-7"
               >
-                <div className="font-serif text-2xl leading-snug text-ink-900">{s.name}</div>
-                <div className="mt-4 font-serif text-2xl tracking-tightest text-ink-800">
-                  {s.price}
+                <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-500">
+                  {f.k}
                 </div>
-                <div className="mt-1 font-mono text-[11.5px] text-ink-500">{s.sub}</div>
-                <p className="mt-5 text-[14px] leading-relaxed text-ink-600">{s.body}</p>
+                <div className="mt-4 font-serif text-2xl leading-snug text-ink-900">
+                  {f.title}
+                </div>
+                <p className="mt-3 text-[14px] leading-relaxed text-ink-600">{f.body}</p>
               </article>
             ))}
           </div>
@@ -241,20 +136,24 @@ export default function Pricing() {
           <div className="mt-10 divide-y divide-ink-900/10">
             {[
               [
-                'How do you count messages?',
-                'One request to /v1/parse or /v1/compose is one message. A typical support turn is one parse plus one compose, so two messages.',
+                'Why no public price list?',
+                "Our best customers don't fit standard tiers. Public pricing tends to anchor conversations in the wrong place. We'd rather understand your workload first, then quote what makes sense.",
               ],
               [
-                'What happens if we exceed the quota?',
-                'Overage kicks in at the rate listed. We alert you at 80% and 100% of the plan. No hard cut-off.',
+                'Is there a minimum commitment?',
+                "For managed pilots, no. For BYOC and on-prem contracts, typically 12 months so we can plan capacity and support. We're flexible if the pilot lands well.",
               ],
               [
                 'Do you charge per seat?',
-                'No. Setu is a machine, not a workforce. You pay for traffic, not for humans.',
+                "No. Setu is API infrastructure, not a workforce. You pay against traffic, deployment mode, and support level. Never against how many humans you employ.",
               ],
               [
-                'Can we bring our own model?',
-                'Not yet. The LoRA is trained specifically for structured output on Llama 3.1 8B. Custom bases will land in an enterprise contract in 2027.',
+                'How fast can we get a quote?',
+                "One reply from a human within 48 hours. A concrete number usually lands within a week, after a short call to align on scope.",
+              ],
+              [
+                'Can we start small and scale?',
+                "Yes. Most engagements start with a pilot workflow on Managed SaaS. When you're ready for BYOC or on-prem, the API contract does not change.",
               ],
             ].map(([q, a]) => (
               <details key={q} className="group py-5">
@@ -265,6 +164,15 @@ export default function Pricing() {
                 <p className="mt-3 text-[14.5px] leading-relaxed text-ink-600">{a}</p>
               </details>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <a
+              href="mailto:klevora.connect@gmail.com?subject=Setu%20%E2%80%94%20let%27s%20talk%20pricing"
+              className="btn-primary"
+            >
+              Start the conversation <span aria-hidden>→</span>
+            </a>
           </div>
         </div>
       </section>

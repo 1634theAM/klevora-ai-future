@@ -4,11 +4,24 @@ import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 
 export default function SiteLayout() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [pathname])
+    if (hash) {
+      // Give the destination route a tick to render, then scroll to the id
+      const id = hash.slice(1)
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else {
+          window.scrollTo({ top: 0, behavior: 'instant' })
+        }
+      })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }
+  }, [pathname, hash])
 
   return (
     <div className="paper relative min-h-screen bg-cream-100">

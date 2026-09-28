@@ -1,9 +1,12 @@
 import Hero from '../components/Hero.jsx'
 import WhatItIs from '../components/WhatItIs.jsx'
-import ParserComposer from '../components/ParserComposer.jsx'
-import YamlSection from '../components/YamlSection.jsx'
-import Sovereignty from '../components/Sovereignty.jsx'
-import Numbers from '../components/Numbers.jsx'
+import HowItWorks from '../components/HowItWorks.jsx'
+import RealExample from '../components/RealExample.jsx'
+import WorkflowEngine from '../components/WorkflowEngine.jsx'
+import BackendIntegration from '../components/BackendIntegration.jsx'
+import WhySetu from '../components/WhySetu.jsx'
+import Playground from '../components/Playground.jsx'
+import DevSection from '../components/DevSection.jsx'
 import Deployment from '../components/Deployment.jsx'
 import WhoFor from '../components/WhoFor.jsx'
 import AdaptiveTeaser from '../components/AdaptiveTeaser.jsx'
@@ -13,13 +16,16 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Playground />
       <WhatItIs />
-      <ParserComposer />
-      <YamlSection />
-      <Sovereignty />
-      <AdaptiveTeaser />
-      <Numbers />
+      <HowItWorks />
+      <RealExample />
+      <WorkflowEngine />
+      <BackendIntegration />
+      <WhySetu />
+      <DevSection />
       <Deployment />
+      <AdaptiveTeaser />
       <WhoFor />
       <CTA />
     </>
