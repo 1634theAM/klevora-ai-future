@@ -66,7 +66,7 @@ export default function Pricing() {
                   </a>
                 </div>
                 <p className="mt-6 font-mono text-[11.5px] text-ink-500">
-                  One reply from a human within 48 hours.
+                  One reply from a human within 24 hours.
                 </p>
               </div>
 
@@ -149,7 +149,7 @@ export default function Pricing() {
               ],
               [
                 'How fast can we get a quote?',
-                "One reply from a human within 48 hours. A concrete number usually lands within a week, after a short call to align on scope.",
+                "One reply from a human within 24 hours. A concrete number usually lands within a week, after a short call to align on scope.",
               ],
               [
                 'Can we start small and scale?',

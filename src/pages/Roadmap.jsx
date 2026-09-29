@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
+import WaitlistForm from '../components/WaitlistForm.jsx'
 
 const timeline = [
   {
@@ -203,9 +204,16 @@ export default function Roadmap() {
             intake. Logistics ops. EdTech. All of them are natural-language on top of an
             existing system. All of them fit Setu's shape.
           </p>
-          <div className="mt-10 flex items-center gap-3">
-            <Link to="/pricing" className="btn-primary">Join the waitlist <span aria-hidden>→</span></Link>
-            <Link to="/product" className="btn-ghost">Read the product</Link>
+          <div className="mt-10">
+            <WaitlistForm
+              source="Setu website - Roadmap CTA"
+              align="left"
+              trailing={
+                <Link to="/product" className="btn-ghost">
+                  Read the product
+                </Link>
+              }
+            />
           </div>
         </div>
       </section>

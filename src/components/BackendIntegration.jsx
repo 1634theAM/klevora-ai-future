@@ -59,7 +59,8 @@ export default function BackendIntegration() {
             </span>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-xl border border-ink-900/10">
+          {/* Desktop table */}
+          <div className="mt-6 hidden overflow-hidden rounded-xl border border-ink-900/10 md:block">
             <table className="w-full text-left text-[13.5px]">
               <thead className="bg-cream-100 text-[11px] uppercase tracking-[0.14em] text-ink-500">
                 <tr>
@@ -71,15 +72,37 @@ export default function BackendIntegration() {
               <tbody className="divide-y divide-ink-900/10 bg-cream-50/60 text-ink-700 font-mono text-[12.5px]">
                 {actions.map((a) => (
                   <tr key={a.name}>
-                    <td className="p-4 text-ink-900">{a.name}</td>
-                    <td className="p-4">{a.map}</td>
-                    <td className="p-4 uppercase tracking-[0.12em] text-[11px] text-ink-500">
+                    <td className="p-4 text-ink-900 whitespace-nowrap">{a.name}</td>
+                    <td className="p-4 whitespace-nowrap">{a.map}</td>
+                    <td className="p-4 uppercase tracking-[0.12em] text-[11px] text-ink-500 whitespace-nowrap">
                       {a.system}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile card list — same data, stacked vertically so nothing gets cropped */}
+          <div className="mt-6 space-y-3 md:hidden">
+            {actions.map((a) => (
+              <div
+                key={a.name}
+                className="rounded-xl border border-ink-900/10 bg-cream-100 p-4"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-mono text-[13px] text-ink-900 break-all">
+                    {a.name}
+                  </span>
+                  <span className="shrink-0 rounded-full bg-ink-900/5 px-2 py-0.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-500">
+                    {a.system}
+                  </span>
+                </div>
+                <div className="mt-2 font-mono text-[12.5px] text-ink-600 break-all">
+                  {a.map}
+                </div>
+              </div>
+            ))}
           </div>
 
           <p className="mt-6 text-[14.5px] leading-relaxed text-ink-500">
